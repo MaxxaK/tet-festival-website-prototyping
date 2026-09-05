@@ -1,0 +1,507 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cambay:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+    /* CSS HSL */
+--puce: hsla(332, 37%, 65%, 1);
+--indian-red: hsla(0, 35%, 56%, 1);
+--salmon-pink: hsla(353, 59%, 74%, 1);
+--raspberry-rose: hsla(344, 44%, 51%, 1);
+--claret: hsla(340, 97%, 28%, 1);
+--dark-purple: hsla(321, 64%, 11%, 1);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Cambay', serif;
+}
+
+body {
+    height: 100vh;
+    background: white;
+}
+
+.header {
+    margin: 0;
+    width: 100%; 
+    height: 80px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    position: fixed; 
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 30;
+}
+
+.header .logo {
+    margin-right: auto;
+}
+
+.header .logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.header ul{
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.header ul li{
+    list-style: none;
+}
+
+.header .header-links {
+    display: flex;
+    align-items: center;
+    margin-left:auto;
+    gap: 30px;
+}
+
+.header .header-links ul li a{
+    text-decoration: none;
+    color: var(--indian-red);
+    font-size: 18px;
+    margin-right: 30px;
+    transition: color 0.3s ease;
+}
+
+.header .header-links ul li:hover a{
+    color: var(--puce);
+    cursor: pointer;
+}
+
+.header .dropdown-item {
+    position: relative;
+}
+
+.header .dropdown-item .sub-menu {
+    position: absolute;
+    top: 190%;
+    left: -20px;
+
+    display: none;
+    flex-direction: column;
+
+    min-width: 220px;
+
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+    z-index: 100;
+}
+
+.header .dropdown-item:hover .sub-menu {
+    display: flex;
+    animation: slideInRight 0.5s ease-out forwards;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(-15%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1; 
+  }
+}
+
+.header .dropdown-item:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: 40px;
+}
+
+.header .dropdown-item .sub-menu li a {
+    display: block;
+    padding: 10px 10px;
+
+    margin: 0;
+
+    font-size: 18px;
+    white-space: no-wrap;
+}
+
+.header .sub-menu li a:hover {
+    background-color: #f5f5f5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Slideshow area */
+.image-title-area {
+    width: 100%;
+    margin: 0;
+    padding-top: 60px;
+}
+
+/* Slideshow container */
+.slideshow-container {
+    width: 100%;
+    position: relative;
+    margin: 0;
+    overflow: hidden;
+}
+
+.page-title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    text-align: center;
+    color: white;
+}
+
+.page-title .main-title {
+    font-family: "Mulish";
+    margin: 0;
+    font-size: 4rem;
+    font-weight: 900;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.page-title h2 {
+    font-family: "Mulish";
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 900;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+.page-title h3 {
+    font-family: "Mulish";
+    margin: 10px 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+}
+
+.dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: white;
+}
+
+
+/* Slides */
+.mySlides {
+    display: none;
+    width: 100%;
+}
+
+/* Images */
+.mySlides img {
+    width: 100%;
+    height: 600px;
+    display: block;
+    object-fit: cover;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.3s ease;
+    user-select: none;
+    z-index: 2;
+}
+
+/* Previous button */
+.prev {
+    left: 0;
+}
+
+/* Next button */
+.next {
+    right: 0;
+}
+
+/* Hover effect */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+/* Dots */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Dots container */
+.image-title-area > div:last-child {
+    text-align: center;
+    padding: 15px 0;
+}
+
+/* The image fading out (active/outgoing) */
+.slide-out {
+    animation: fadeOut 1.5s ease-in-out forwards;
+}
+
+/* The image fading in (incoming) */
+.slide-in {
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* section break */
+
+.dawn-horizon-section {
+    width: 100%;
+    padding: 100px 0;
+    background: linear-gradient(180deg, #ffffff 0%, #fffcf7 100%); /* Warm, cream-tinted background transition */
+}
+
+.horizon-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 0 40px;
+}
+
+.horizon-text {
+    flex: 1.2;
+}
+
+.horizon-text h2 {
+    font-size: 3.5rem;
+    color: black;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.horizon-text p {
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: #370609;
+}
+
+/* The creative visual block area */
+.horizon-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Creating a giant glowing lunar gradient orb entirely in CSS */
+.moon-shape {
+    width: 350px;
+    height: 350px;
+    /* Mandarin to Gold to Blossom Pink */
+    background: linear-gradient(
+        135deg, 
+        #FFE6C7 10%,    /* Creamy warm gold highlight */
+        #F2994A 30%,   /* Your original vibrant Mandarin Orange */
+        #EAA89B 70%,   /* Smooth Rose Pink blend */
+        #EB5757 100%   /* Your original deep Blossom Pink */
+    );
+    border-radius: 50%; /* Makes it a perfect circle */
+    box-shadow: 0 20px 50px rgba(242, 153, 74, 0.3); /* Gives it a soft light emission aura */
+}
+
+/* Container styling matching the soft cream background look */
+.gallery-section {
+    margin: 0 auto;
+    padding: 10px 10px;
+    background: linear-gradient(135deg, #E1B16A 0%, #EAA89B 40%, #F5CECA 80%, #FFFFFF 100%);
+
+
+}
+
+.lantern-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 0.5vw; /* Spacing scales fluidly with the screen width */
+    
+    /* 
+        use viewport units (vw) to shrink.
+    */
+    grid-auto-rows: 16vw; 
+}
+
+/* Base style for the cards */
+.grid-item {
+    background: linear-gradient(135deg, #d0001c 0%, #ff1c7b 60%, #ff9ebb 100%);
+    border-radius: 0.8vw; /* Rounded corners scale fluidly with the screen size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-text {
+    /* Text size automatically scales down so it doesn't break out of the shrinking boxes */
+    font-size: calc(1rem + 1vw); 
+    font-weight: bold;
+    color: #ffffff;
+    /* hides/shows placeholder text (used for dev) */
+    display: none;
+}
+
+/* --- Precise Coordinate Mapping (Maintained) --- */
+
+.item-1 {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+
+    background: url('images/YT_SLD-14-X2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.item-2 {
+    grid-column: 2;
+    grid-row: 1;
+
+    background: url('images/CREATIVES-BNV-01.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.item-3 {
+    grid-column: 2;
+    grid-row: 2;
+
+    background: url('images/DAY1-CREATIVES-CTT-32.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.item-4 {
+    grid-column: 3;
+    grid-row: 1;
+
+    background: url('images/CF\ DAY\ 2\ -\ LN-56.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.item-5 {
+    grid-column: 3;
+    grid-row: 2;
+
+    background: url('images/OPC-\ LN-47.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.item-6 {
+    grid-column: 4 / span 2;
+    grid-row: 1;
+
+    background: url('images/CF\ DAY\ 2\ -\ LN-31-X4.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.item-7 {
+    grid-column: 4 / span 2;
+    grid-row: 2;
+
+    background: url('images/MVSC\ AAExpo-\ LN-85.jpg');
+    background-size: cover;
+    background-position: up;
+}
+
+.item-8 {
+    grid-column: 6;
+    grid-row: 1 / span 2;
+
+    background: url('images/Lunar\ Night-Rachele\ Nguyen-SB-16.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+
