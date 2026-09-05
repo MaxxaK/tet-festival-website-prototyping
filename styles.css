@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cambay:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+/* color palette from another project of mine which I copied code from (not used much here) */
 :root {
     /* CSS HSL */
 --puce: hsla(332, 37%, 65%, 1);
@@ -394,9 +395,7 @@ body {
 .gallery-section {
     margin: 0 auto;
     padding: 10px 10px;
-    background: linear-gradient(135deg, #E1B16A 0%, #EAA89B 40%, #F5CECA 80%, #FFFFFF 100%);
-
-
+    background: linear-gradient(180deg, #E1B16A 0%, #EAA89B 40%, #F5CECA 80%, #FFFFFF 100%);
 }
 
 .lantern-grid {
@@ -502,6 +501,175 @@ body {
     background-position: center;
 }
 
+/* Core Section Setup - Using a soft, premium cultural cream background */
+.lantern-portal-section {
+    width: 100%;
+    padding: 150px 0 180px 0;
+    position: relative; /* Crucial to keep background shapes anchored here */
+    overflow: hidden; /* Prevents giant background rings from breaking layout width */
+    margin-top: -2px;
 
+    /*fallback*/
+    background-color: white;
+    
+    background: radial-gradient(circle at top center, #ffffff 0%, #ffe6cd 85%, #ead1b3 100%);
+}
 
+.bg-lunar-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 650px;
+    height: 650px;
+    border: 1px solid rgba(242, 201, 76, 0.25); /* Thin, delicate gold circular border line */
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* 2. Ghostly Vertical Typographic Watermarks */
+.bg-side-text {
+    position: absolute;
+    z-index: 1;
+    font-size: 8rem;
+    font-weight: 900;
+    letter-spacing: 12px;
+    
+    color: rgba(212, 190, 160, 0.22); 
+    user-select: none;
+    pointer-events: none;
+}
+
+.left-stamp {
+    left: 5%;
+    top: 25%;
+    transform: rotate(-90deg) translateX(-50%);
+    transform-origin: left center;
+}
+
+.right-stamp {
+    right: 5%;
+    bottom: 30%;
+    transform: rotate(90deg) translateX(50%);
+    transform-origin: right center;
+}
+
+.lantern-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 120px; 
+    padding: 0 40px;
+}
+
+.lantern-card {
+    flex: 1;
+    max-width: 400px;
+    min-height: 480px;
+    border-radius: 50px;
+    padding: 50px 40px;
+    display: flex;
+    align-items: flex-end;
+    color: #ffffff;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Left Card: Cinnabar Red, shifted upwards */
+.vendor-side {
+    background: linear-gradient(180deg, #d32f2f 0%, #a61c1c 100%);
+    transform: translateY(-40px); /* Creates the offset */
+
+    box-shadow: 0 20px 50px rgba(166, 28, 28, 0.45); 
+}
+
+/* Right Card: Imperial Jade Green, shifted downwards */
+.sponsor-side {
+    background: linear-gradient(180deg, #2e6b42 0%, #174224 100%);
+    transform: translateY(40px); /* Creates the offset */
+
+    box-shadow: 0 20px 50px rgba(23, 66, 36, 0.45);
+}
+
+.vendor-side:hover {
+    transform: translateY(-55px) scale(1.02); /* Drifts slightly higher when hovered */
+    box-shadow: 0 30px 60px rgba(166, 28, 28, 0.65); /* Under-glow intensifies */
+}
+
+.sponsor-side:hover {
+    transform: translateY(25px) scale(1.02); /* Drifts slightly higher when hovered */
+    box-shadow: 0 30px 60px rgba(23, 66, 36, 0.55); /* Under-glow intensifies */
+}
+
+.card-content {
+    width: 100%;
+}
+
+.card-tag {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #f2c94c; /* Gold tag header text */
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.card-content h2 {
+    font-family: 'Mulish';
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.card-content p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-bottom: 40px;
+}
+
+.card-link {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 4px;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.card-link:hover {
+    border-color: #f2c94c; 
+    color: #f2c94c;
+}
+
+/* --- Responsive Rules for Mobile --- */
+@media (max-width: 768px) {
+    .lantern-portal-section {
+        padding: 80px 0; /* Shrink heavy section padding */
+    }
+    
+    .lantern-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+        gap: 40px;
+    }
+    
+    /* Strip away the heavy desktop layout offsets so they layout cleanly on phones */
+    .card-vendor, .card-sponsor {
+        transform: translateY(0) !important; 
+        width: 100%;
+    }
+    
+    /* Provide a simple standard lift on mobile hover instead */
+    .card-vendor:hover, .card-sponsor:hover {
+        transform: translateY(-5px) !important;
+    }
+}
 
