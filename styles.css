@@ -134,7 +134,7 @@ body {
     margin: 0;
 
     font-size: 18px;
-    white-space: no-wrap;
+    white-space: nowrap;
 }
 
 .header .sub-menu li a:hover {
@@ -1021,7 +1021,6 @@ body {
         width: 100%;
         display: flex;
         align-items: center;
-        justify-content: space-between;
     }
 
     /* Logo */
@@ -1040,9 +1039,23 @@ body {
         display: none;
     }
 
-    /* Search icon */
-    .header .search-bar {
+    /* Hamburger */
+    .mobile-menu-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin-left: auto;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+
+    .mobile-menu-button i {
+        font-size: 28px;
+    }
+
+    /* Search */
+    .header .search-bar {
+        margin-left: 0;
     }
 
     .header .search-icon {
