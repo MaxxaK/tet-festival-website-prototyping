@@ -662,20 +662,21 @@ body {
     }
     
     /* Strip away the heavy desktop layout offsets so they layout cleanly on phones */
-    .card-vendor, .card-sponsor {
+    .vendor-side, .sponsor-side {
         transform: translateY(0) !important; 
         width: 100%;
     }
     
     /* Provide a simple standard lift on mobile hover instead */
-    .card-vendor:hover, .card-sponsor:hover {
+    .vendor-side:hover, .sponsor-side:hover {
         transform: translateY(-5px) !important;
     }
 }
 
 
 .timeline-directory-section {
-    max-width: 75%;
+    width: 100%;
+    max-width: 1250px;
     margin: 0 auto;
     padding: 100px 40px;
 }
@@ -855,18 +856,22 @@ body {
         flex-direction: column; /* Stack label over the content track on mobile */
         gap: 15px; 
     }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
     
     /* Standardizes column flow for thumbs on mobile viewports */
-    .grid-2, .grid-3, .grid-4, .grid-5 { 
+    .grid-3, .grid-4, .grid-5 { 
         grid-template-columns: repeat(2, 1fr); 
     }
     
     .logo-box {
-        height: 85px; /* Shorter cards to maintain proportions on small layouts */
+        height: 120px; /* Shorter cards to maintain proportions on small layouts */
     }
 
     .box-overlay span {
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 }
 
@@ -983,4 +988,13 @@ body {
   .stay-connected ul {
     justify-content: center; /* Ensures the flex-row of social icons centers perfectly */
   }
+}
+
+
+
+/* test for mobile responsiveness */
+.image-title-area,
+.slideshow-container {
+    width: 100vw !important;
+    max-width: 100vw !important;
 }
