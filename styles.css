@@ -1007,12 +1007,3 @@ body {
     justify-content: center; /* Ensures the flex-row of social icons centers perfectly */
   }
 }
-
-
-
-/* test for mobile responsiveness */
-.image-title-area,
-.slideshow-container {
-    width: 100vw !important;
-    max-width: 100vw !important;
-}
