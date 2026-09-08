@@ -1007,3 +1007,51 @@ body {
     justify-content: center; /* Ensures the flex-row of social icons centers perfectly */
   }
 }
+
+
+.mobile-menu-button {
+    display: none;
+}
+
+@media (max-width: 900px) {
+
+    .header {
+        height: 70px;
+        padding: 0 20px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Logo */
+    .header .logo {
+        margin-right: 0;
+    }
+
+    .header .logo img {
+        width: 42px;
+        height: 42px;
+        display: block;
+    }
+
+    /* Hide desktop navigation */
+    .header .header-links {
+        display: none;
+    }
+
+    /* Search icon */
+    .header .search-bar {
+        margin-left: auto;
+    }
+
+    .header .search-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header .search-icon i {
+        font-size: 24px;
+    }
+}
