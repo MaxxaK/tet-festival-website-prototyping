@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Cambay:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
-/* color palette from another project of mine which I copied code from (not used much here) */
+/* Marketing team Color palette */
 :root {
-    /* CSS HSL */
---puce: hsla(332, 37%, 65%, 1);
---indian-red: hsla(0, 35%, 56%, 1);
---salmon-pink: hsla(353, 59%, 74%, 1);
---raspberry-rose: hsla(344, 44%, 51%, 1);
---claret: hsla(340, 97%, 28%, 1);
---dark-purple: hsla(321, 64%, 11%, 1);
+    /* CSS HEX */
+--blood-rust: #D1293D;
+--olive-drab: #6C8638;
+--light-magenta: #E5A1E5;
+--sun-touched: #F9d572;
+--pastel-lime: #D3E684;
+--light-cream: #FFF2D0;
 }
 
 *{
@@ -579,7 +579,7 @@ body {
 
 /* Left Card: Cinnabar Red, shifted upwards */
 .vendor-side {
-    background: linear-gradient(180deg, #d32f2f 0%, #a61c1c 100%);
+    background: linear-gradient(180deg, #d1293d 0%, #a61c1c 100%);
     transform: translateY(-40px); /* Creates the offset */
 
     box-shadow: 0 20px 50px rgba(166, 28, 28, 0.45); 
@@ -587,7 +587,7 @@ body {
 
 /* Right Card: Imperial Jade Green, shifted downwards */
 .sponsor-side {
-    background: linear-gradient(180deg, #2e6b42 0%, #174224 100%);
+    background: linear-gradient(180deg, #6c8638 0%, #256739 100%);
     transform: translateY(40px); /* Creates the offset */
 
     box-shadow: 0 20px 50px rgba(23, 66, 36, 0.45);
@@ -672,8 +672,6 @@ body {
         transform: translateY(-5px) !important;
     }
 }
-
-
 
 
 .timeline-directory-section {
@@ -872,3 +870,117 @@ body {
     }
 }
 
+.footer {
+    padding: 60px 30px 40px 30px;
+}
+
+.bottom-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 40px;
+}
+
+.logo img {
+    max-width: 200px;
+    height: auto;
+}
+
+.footer-browse-col h3, .footer-contact-col h3 {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-family: 'Mulish';
+    font-weight: 800;
+}
+
+.footer-browse-col ul,
+.footer-contact-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-browse-col li {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+}
+
+.footer-browse-col a {
+    color: #643f3f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-browse-col a:hover {
+    color: var(--blood-rust);
+}
+
+.contact-info li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.contact-info li h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 800;
+}
+
+.contact-info li p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #844a4a;
+}
+
+.stay-connected {
+    margin-top: 30px;
+}
+
+.stay-connected ul {
+    display: flex;
+    gap: 50px; /* Spaces out social icons horizontally */
+}
+
+.stay-connected a {
+    display: inline-flex;
+    justify-content: center; 
+    align-items: center; 
+
+    font-size: 2rem; 
+    height: 60px;
+    width: 60px;
+    color: white;
+    background-color: var(--blood-rust);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.stay-connected a:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .bottom-info {
+    flex-direction: column; /* Flips horizontal rows into a clean vertical stack */
+    align-items: center;    /* Centers columns inside viewport */
+    text-align: center;     /* Centers text context */
+    gap: 45px;              /* Slightly larger spacing for easy thumb scrolling */
+  }
+
+  .logo img {
+    max-width: 130px;       /* Shrinks logo slightly for smaller screen aesthetics */
+  }
+  
+  .contact-info li {
+    justify-content: center; /* Centers layout for horizontal item fragments */
+  }
+
+  .stay-connected ul {
+    justify-content: center; /* Ensures the flex-row of social icons centers perfectly */
+  }
+}
