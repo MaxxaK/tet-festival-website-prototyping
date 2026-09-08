@@ -391,6 +391,24 @@ body {
     box-shadow: 0 20px 50px rgba(242, 153, 74, 0.3); /* Gives it a soft light emission aura */
 }
 
+@media (max-width: 768px) {
+    .horizon-container {
+        flex-direction: column;
+        padding: 0 25px;
+        gap: 50px;
+    }
+
+    .horizon-text,
+    .horizon-visual {
+        width: 100%;
+    }
+
+    .moon-shape {
+        width: 280px;
+        height: 280px;
+    }
+}
+
 /* Container styling matching the soft cream background look */
 .gallery-section {
     margin: 0 auto;
